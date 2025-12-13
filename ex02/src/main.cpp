@@ -133,3 +133,12 @@ exercises then the evaluation stops here.
 
 !!binary search!!
 resources on discord
+
+
+leap year
+
+why deque
+
+why deque is slower
+
+int overflow prn

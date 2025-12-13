@@ -130,3 +130,6 @@ A brief explanation is expected. In case of doubt, the evaluation stops here and
 
 If one of the containers chosen here is included in one of the previous
 exercises then the evaluation stops here.
+
+!!binary search!!
+resources on discord

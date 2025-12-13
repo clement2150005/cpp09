@@ -105,3 +105,5 @@ int main(int argc, char **argv)
 
 // 	return 0;
 // }
+
+// for i in {1..3000}; do echo -n "$((RANDOM % 4000 + 1)) "; done; echo

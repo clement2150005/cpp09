@@ -1,4 +1,4 @@
-NAME        =   Reverse\ Polish\ Notation
+NAME        =   RPN
 SRC_DIR     =   src
 OBJ_DIR     =   obj
 INCLUDE_DIR =   include

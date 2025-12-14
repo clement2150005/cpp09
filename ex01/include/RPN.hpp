@@ -14,4 +14,7 @@ private:
 	~RPN();
 
 	static bool isOperator(char c);
+	static bool add_overflow(long long a, long long b, long long &res);
+	static bool sub_overflow(long long a, long long b, long long &res);
+	static bool mul_overflow(long long a, long long b, long long &res);
 };

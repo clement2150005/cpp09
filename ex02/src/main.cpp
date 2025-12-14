@@ -107,38 +107,3 @@ int main(int argc, char **argv)
 // }
 
 // for i in {1..3000}; do echo -n "$((RANDOM % 4000 + 1)) "; done; echo
-Code review
-
-Check that a makefile is included with the usual compilation rules.
-
-Check in the code that the program uses at least two containers.
-
-If not, the evaluation stops here.
-
-The person being evaluated must explain why they chose to use these containers
-and not another?
-
-Check in the code that the merge-insert sort algorithm is present and is used for each container. The Ford-Johnson algorithm must be used.
-If the Ford-Johnson sorting algorithm is not used, the evaluation stops here and no points are awarded for any subsequent sections.
-
-The student must be capable of explaining the following concepts:
-
-The key aspects of merge insertion, specifically the role of pairs.
-The Jacobsthal sequence and its relevance.
-The process of binary search.
-A brief explanation is expected. In case of doubt, the evaluation stops here and no points will be awarded for the subsequent parts of the evaluation.
-
-If one of the containers chosen here is included in one of the previous
-exercises then the evaluation stops here.
-
-!!binary search!!
-resources on discord
-
-
-leap year
-
-why deque
-
-why deque is slower
-
-int overflow prn

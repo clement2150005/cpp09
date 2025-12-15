@@ -93,12 +93,13 @@ bool BitcoinExchange::getNextInput(std::ifstream &input, std::string &date, doub
     std::string valueStr = line.substr(sep + 3);
 	value = std::strtod(valueStr.c_str(), NULL);
 
-    checkInput(date, valueStr, value);
+    checkDate(date);
+	checkValue(date, valueStr, value);
 
 	return true;
 }
 
-void BitcoinExchange::checkInput(const std::string &date, const std::string &valueStr, double value)
+void BitcoinExchange::checkDate(const std::string &date)
 {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		throw std::runtime_error("Error: bad input => " + date);
@@ -106,14 +107,28 @@ void BitcoinExchange::checkInput(const std::string &date, const std::string &val
 	for (size_t i = 0; i < date.size(); i++)
 	{
 		if (i != 4 && i != 7 && !std::isdigit(date[i]))
-		throw std::runtime_error("Error: bad input => " + date);
+			throw std::runtime_error("Error: bad input => " + date);
 	}
 
+	int year = std::atoi(date.substr(0, 4).c_str());
 	int month = std::atoi(date.substr(5, 2).c_str());
 	int day = std::atoi(date.substr(8, 2).c_str());
-	if (month < 1 || month > 12 || day < 1 || day > 31)
+
+	if (month < 1 || month > 12)
 		throw std::runtime_error("Error: bad input => " + date);
 
+	int daysInMonth[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+	bool leap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+	if (leap)
+		daysInMonth[1] = 29;
+
+	if (day < 1 || day > daysInMonth[month - 1])
+		throw std::runtime_error("Error: bad input => " + date);
+}
+
+void BitcoinExchange::checkValue(const std::string &date, const std::string &valueStr, double value)
+{
 	char *end;
 	std::strtod(valueStr.c_str(), &end);
 	if (*end)

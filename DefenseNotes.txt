@@ -1,0 +1,46 @@
+Why choose vector
+{
+    Vector: contiguous memory, fast indexing for building the main chain and binary searches.
+} 
+
+why choose deque
+{
+    Deque: allows efficient push/pop at both ends while still supporting indexing for the main chain. Lists would make binary search slow.
+}
+
+What is merge insertion, and specifically the role of pairs.
+{
+    Merge-insertion is a sorting method that first splits the
+    elements into pairs of two, sorts each pair so the larger
+    element is first, and then builds a sorted “main chain”
+    from all the larger elements. The smaller elements in
+    each pair—called the pend elements—are then inserted into
+    the main chain in a specific order (often following the
+    Jacobsthal sequence) using binary search. Pairs are
+    crucial because they let the algorithm reduce the total
+    number of comparisons: each pair only requires one
+    comparison to order, and the pend elements are inserted
+    efficiently afterward.
+}
+
+What is the Jacobsthal sequence and its relevance.
+{
+    The Jacobsthal sequence is a series of numbers defined
+    recursively. In merge-insertion, it determines the order
+    in which the smaller elements of the pairs (pend elements)
+    are inserted into the main chain. Using the Jacobsthal
+    sequence minimizes comparisons by spreading insertions
+    efficiently across the partially sorted chain, rather than
+    inserting strictly left-to-right.
+}
+
+Why deque is slower than vector.
+{
+    Deque is slower than vector mainly because of memory layout.
+    Vector stores elements contiguously in a single block, so
+    accessing or iterating is cache-friendly and insertion at
+    the end is usually O(1) amortized. Deque uses multiple chunks
+    of memory, so random access can be slightly slower and
+    insertions in the middle require more pointer hopping and
+    sometimes moving elements between blocks.
+}

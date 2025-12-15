@@ -16,7 +16,7 @@ private:
     void parseDataBase(std::ifstream &dataBase);
     void processInput(std::ifstream &input);
     bool getNextInput(std::ifstream &input, std::string &date, double &value);
-    void checkInput(const std::string &date, const std::string &valueStr, double value);
-        
+    void checkValue(const std::string &date, const std::string &valueStr, double value);
+    void checkDate(const std::string &date);
     std::map<std::string, double> _db;
 };
